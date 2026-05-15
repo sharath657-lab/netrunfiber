@@ -1,10 +1,10 @@
 "use client"
-import sidebar from "../../components/sidebar"
+import Sidebar from "../../components/sidebar"
 export default function DashboardPage() {
   return (
    <main className="min-h-screen bg-black text-white flex">
 <>
-  <sidebar />
+  <Sidebar />
 
   <div className="flex-1 p-10">
 
