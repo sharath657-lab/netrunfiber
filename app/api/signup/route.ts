@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
-import bcrypt from "bcryptjs"
 import connectDB from "../../../lib/mongodb"
 import User from "../../../models/User"
+import bcrypt from "bcryptjs"
 
 export async function POST(req: Request) {
   try {
@@ -10,6 +10,8 @@ export async function POST(req: Request) {
     const body = await req.json()
 
     const { name, email, password } = body
+
+    console.log(name, email)
 
     const existingUser = await User.findOne({ email })
 
@@ -32,12 +34,12 @@ export async function POST(req: Request) {
       success: true,
       user: newUser,
     })
-  } catch (error) {
-    console.log(error)
+  } catch (error: any) {
+    console.log("SIGNUP ERROR:", error)
 
     return NextResponse.json({
       success: false,
-      message: "Server Error",
+      message: error.message,
     })
   }
 }
