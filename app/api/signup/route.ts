@@ -35,11 +35,10 @@ export async function POST(req: Request) {
       user: newUser,
     })
   } catch (error: any) {
-    console.log("SIGNUP ERROR:", error)
+  console.log("SIGNUP ERROR:", error)
 
-    return NextResponse.json({
-      success: false,
-      message: error.message,
-    })
-  }
+  return NextResponse.json({
+    success: false,
+    message: error.message,
+  })
 }
